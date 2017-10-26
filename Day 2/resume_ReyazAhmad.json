@@ -1,0 +1,118 @@
+{
+  "basics": {
+    "name": "Reyaz Ahmad Mir",
+    "picture": "",
+    "email": "mirreyaz1111@gmail.com",
+    "phone": "(+91) 95171-66783",
+    "website": "http://fileheap.net16.net",
+    "summary": "Passionate learner",
+    "location": {
+      "address": "Zirakpur",
+      "postalCode": "12345",
+      "city": "Chandigarh",
+      "countryCode": "IND",
+      "region": "Punjab"
+    },
+    "profiles": [
+	{
+      "network": "Twitter",
+      "username": "Mir Reyaz",
+      "url": "http://twitter.com/mirreyaz1111"
+    },
+	{
+      "network": "Facebook",
+      "username": "Mir Reyaz",
+      "url": "http://twitter.com/ProgrammerAtWork"
+    }
+	]
+  },
+  "work": [{
+    "company": "Jugnoo",
+    "position": "intern",
+    "website": "http://jugnoo.in",
+    "startDate": "2017-10-24",
+    "endDate": "2018-10-23",
+    "summary": "Jugnoo has simplified everyday lives of its users. Our hyper-local model has transformed the way people avail services."
+  }],
+  "volunteer": [{
+    "organization": "WebNerds",
+    "position": "Member",
+    "website": "https://www.facebook.com/Webnerdsofficial/",
+    "startDate": "2017-10-01",
+    "endDate": "0000-00-00",
+    "summary": "Web Nerds is an official Students Organization for Web Development and Technologies."
+  }],
+  "education": [{
+    "institution": "Lovely Professional University",
+    "area": "Computer Applications",
+    "studyType": "Master",
+    "startDate": "2016-08-01",
+    "endDate": "2018-05-30",
+    "gpa": "8.97",
+    "courses": [
+      "CAP234 - Android",
+      "CAP634 - IOS",
+      "CAP629 - Hybrid App Development",
+      "CAP101 - R Programming",
+      "CAP520 - Graphics Programming"
+    ]
+  }]
+  "publications": [
+  {
+    "name": "JavaScript - Tutorial Android App",
+    "publisher": "Global Software Solutions",
+    "releaseDate": "2016-08-15",
+    "website": "http://tinyurl.com/JavaScriptApp",
+    "summary": "An Android app to learn javascript in a simple and effective way"
+  },
+  {
+    "name": "Bank Locator Android App",
+    "publisher": "Global Software Solutions",
+    "releaseDate": "2017-05-01",
+    "website": "http://tinyurl.com/BankLOcatorApp",
+    "summary": "An Android app to locate banks in india"
+  },
+  {
+    "name": "Password Manager Android App",
+    "publisher": "Global Software Solutions",
+    "releaseDate": "2017-06-01",
+    "website": "http://tinyurl.com/PasswordManagerApp",
+    "summary": "An Android app to store all kind of user id's and passwords in a secure way with pin protection mechanish"
+  }
+  ],
+  "skills": [
+  {
+    "name": "Android App Development",
+    "level": "Master"
+  },
+  {
+    "name": "Hybrid App Development",
+    "level": "Intermediate"
+  },
+  {
+    "name": "Web Developer",
+    "level": "Master"
+  }
+  ],
+  "languages": [
+  {
+    "name": "English",
+    "level": "Native speaker"
+  },
+  {
+    "name": "Hindi",
+    "level": "Native speaker"
+  },
+  {
+    "name": "Kashmiri",
+    "level": "Native speaker"
+  },
+  {
+    "name": "Urdu",
+    "level": "Native speaker"
+  }
+  ],
+  "interests": [{
+    "name": "musuc(trance)"
+  }]
+}
