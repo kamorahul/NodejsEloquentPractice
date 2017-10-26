@@ -1,7 +1,7 @@
 var resume = { 
                 "personal_details":{ 
-                	"name":"Rahul Kumar",
-                	"dob":"30-01-1997",
+                	  "name":"Rahul Kumar",
+                	  "dob":"30-01-1997",
                     "sex":"Male",
                     "nationality":"Indian",
                     "email":"rahulkumar310197@gmail.com",
