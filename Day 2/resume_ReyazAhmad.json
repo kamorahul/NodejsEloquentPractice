@@ -56,7 +56,7 @@
       "CAP101 - R Programming",
       "CAP520 - Graphics Programming"
     ]
-  }]
+  }],
   "publications": [
   {
     "name": "JavaScript - Tutorial Android App",
@@ -115,4 +115,4 @@
   "interests": [{
     "name": "musuc(trance)"
   }]
-}
+};
