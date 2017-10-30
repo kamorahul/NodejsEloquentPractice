@@ -1,5 +1,6 @@
 var x=require('./mayank_human1.json');
 //console.log(x.gender);
+//var
 var genHuman=function(){
 return function(){
 if(x.gender=="male" || x.gender=="female")
