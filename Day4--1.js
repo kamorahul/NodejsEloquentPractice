@@ -31,3 +31,4 @@ var makeAMan = function()
     }();
     }
     makeAMan();
+//javscript with json
