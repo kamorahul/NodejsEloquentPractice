@@ -1,6 +1,6 @@
 	var Bio_Data = {
     "Name" : "Adithya vikram raj",
-    "age" : "age 21",
+    "age" : "21",
     "gender" : "male",
     "university" : "Lovely Professional University",
     "hobbies" : ["Photography","Travelling","Reading Novels"],
@@ -12,5 +12,5 @@
 //var jsonStr = JSON.stringify(Bio_Data);
 var k=0;
 for (i in Bio_Data) {
-document.getElementById("play").innerHTML += "<li>"+Bio_Data[i] +"</li>";
+document.getElementById("play").innerHTML += "<li>"+i+" --> "+Bio_Data[i] +"</li>";
 }
