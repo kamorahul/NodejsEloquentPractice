@@ -5,6 +5,7 @@ var human=function(obj)
   //   return argument;
   //
   // }
+  //
 
 return function(){
  var result=" ";
