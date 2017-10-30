@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>functions</title>
+</head>
+<body>
+<script type="text/javascript">
+var human = function(){
+var name = "Ranjith";
+alert("press ok to enter the Details of "+name +" are:")
+   }
+   human();
+
+var	x=function propertyHumanbeing(name,gender,age,place,height,weight){
+     var a= prompt("enter the name",name);
+      var b=prompt("enter gender",gender);
+	      var c=prompt("enter age",age);
+      var d=prompt("enter place",place);
+      var e=prompt("enter height",height);
+      var f=prompt("enter weight",weight);
+//for(i=0;i<6;i++){
+alert("enter ok to view the Details")	
+alert("Name :"+ a);
+alert("Gender :"+ b);
+alert("Age :"+ c);
+alert("Place :"+ d);
+alert("Height :"+ e);
+alert("Weight :"+ f);
+if(c<18){
+	alert("minor");
+}
+else alert("major");
+if(c>18&&f<50){
+	alert("person is having less weight compared to his age");
+}
+if(e>5.9){
+	alert("person is tall");
+
+}
+else if(e<5.3){
+	alert("person is short");
+}
+else{alert("person is having avg height")}
+if(c<21 && f>80){
+	alert("person is having heavy weight compared to his age");
+}
+alert("that's all");
+ //}
+}
+x();
+</script>
+</body>
+</html>
