@@ -6,13 +6,14 @@ var data=[
 	"weight":"50kg",
 	"moving":"move",
 	"gender":"male"
-}
+},{"name":"Atif"}
 ];
 var human =function humanpro(data)
 {
 	var data=JSON.parse(data)
 	//console.log(data[0].name);
 	nameIs(data[0].name);
+	nameIs(data[1].name);
 	height(data[0].height);
 	weight(data[0].weight);
 	moving(data[0].moving);
@@ -32,8 +33,6 @@ var human =function humanpro(data)
 	function gender(gen){
 		console.log("gender is",gen);
 	}
-
-
 }
 
 human(JSON.stringify(data));
