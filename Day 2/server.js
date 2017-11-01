@@ -13,12 +13,15 @@ var link=req.url;
     res.writeHead(200, {"Content-Type": "text/plain"});
 
 
-
+// for username
 var z=link.substring(link.search(/[A-Za-z0-9]*[&]/g));
 var user=z.substring(0,z.indexOf('&'));
+
+// for password
 var y=z.substring(z.search(/[&]/g));
 var pass=y.substring(y.indexOf("=")+1);
 
+// Authenticating user
 if(user==data.username && pass==data.password){
 res.end("Login successful")
   }
@@ -32,5 +35,9 @@ res.end("Login successful")
       else {
         res.end("User does not exist.")
       }
+}
+
+else{
+  res.end("wrong url..! Try again!")
 }
 }).listen(3000);
