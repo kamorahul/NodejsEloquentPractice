@@ -1,6 +1,6 @@
 var http = require("http");
 
-var data = require("queryString");
+var data = require("./queryString");
 
 http.createServer(function(req, res) {
 
