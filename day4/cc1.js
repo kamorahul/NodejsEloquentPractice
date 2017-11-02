@@ -28,7 +28,7 @@ displayWindow(res);
  
 function displayWindow(res) {
 
-fs.readFile('form.html', function (err, data) {
+fs.readFile('cc2.html', function (err, data) {
 
 res.writeHead(200, {
 
