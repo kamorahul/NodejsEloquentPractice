@@ -45,7 +45,7 @@ function getCode(req, res) {
         var stream = fs.createWriteStream("output.txt");
         stream.once('open', function(fd) {
          // fields["output"]=stdout; 
-          if(error.message.length>0)
+          if(error!=null)
           {
             stream.write(stderr);
             fields["output"]=stderr;  
