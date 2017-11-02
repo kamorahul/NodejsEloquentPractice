@@ -81,7 +81,8 @@ var stream = fs.createWriteStream("output.txt");
 stream.once('open', function(fd) {
 
  fields["output"]=stdout; 
-
+if(error!=null)
+{
 if(error.message.length>0)
 
 {
@@ -91,7 +92,7 @@ stream.write(stderr);
 fields["output"]=stderr; 
 
 }
-
+}
 else
 
 { stream.write(stdout);
