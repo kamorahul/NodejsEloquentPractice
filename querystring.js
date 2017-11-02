@@ -1,23 +1,47 @@
 module.exports = {
-	decodePost : function(str){
-		var val =  str.split("=");
-		if(val[0].split("?")[1]==="name")
-			return { "name" : val[1]};
-		else
-			return { "" : "" };
-	},
-
 	decodeGet : function(str){
-		var val =  str.split("/");
+
+
+		//using reg-exp....
+
 		var parsed = {};
-        var position = parsed;
-        for(var j = 0; j < val.length; j++) {
-            if(val[j] !== "") {
-                if(typeof position[val[j]] === 'undefined')
-                    position[val[j]] = {};
-                position = position[val[j]];
-            }
-        }
-	    return parsed;
+		var pairs = str.match(/[a-zA-z]*=[a-zA-Z0-9]*/g);
+		if(pairs !== null)
+			pairs.forEach(function(pair){
+				var key = pair.split("=")[0];
+				var val = pair.split("=")[1];
+				parsed[key] = val;
+			});
+
+		return parsed;
+
+
+		//ist attempt...
+		//without reg-exp...
+
+		/*var parsed = {
+			path:{},
+			pairs:{}
+		};
+		if(str.indexOf("?") > -1){
+			var pathUrl =  str.split("?");
+			var path = pathUrl[0];
+			var arg = pathUrl[1];
+			if(/.&./.test(arg)){
+				var pairs = arg.split("&");
+
+				for (var i = 0; i < pairs.length; i++) {
+					var key = pairs[i].split("=")[0];
+					var val = pairs[i].split("=")[1];
+					parsed.pairs[key] = val;
+				}
+			}else{
+					var key = arg.split("=")[0];
+					var val = arg.split("=")[1];
+					parsed.pairs[key] = val;
+			}
+		}
+		return parsed;*/
+
 	}
 }
