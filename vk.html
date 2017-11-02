@@ -1,0 +1,64 @@
+<html>
+<head>
+<title >Vikas 
+</title>
+
+<script type="text/javascript">
+	function x()
+	{
+		
+
+   
+	try {
+		var str=prompt("Enter ur Name");
+		document.writeln("My name is :" +str);
+		}
+		catch(err) {
+    document.writeln = err.message;
+	}
+
+		var str1=prompt("Enter ur Gender");
+		document.writeln("\nI'm :" +str1);
+
+		var str2=prompt("Enter ur Age");
+		document.writeln("\nMy age is :" +str2);
+
+		var str3=prompt("Enter ur Date Of Birth");
+		document.writeln("\nI born on " +str3);
+
+		var str4=prompt("Enter height and weight ");
+		document.writeln("\nMy height  and Weight is :" +str4);
+
+
+		//document.getElementById('id1').innerHTML=str;
+		//console.log(str);
+		//return str.toString();
+
+	}
+	function ability()
+	{
+		//console.log("I can walk and move");
+		document.writeln("I can Move and Walk");	
+		document.writeln("I can Sing");	
+		document.writeln("I can Play Cricket & Chess");
+		
+			
+	}
+	function skills()
+	{
+		var str=prompt("Enter ur Skills");
+		document.writeln(str);
+	}
+
+</script>
+</head>
+<body>
+<input type="button" name="Click" id="id1" value="MyIntro" onclick="x()"></input>
+<input type="button" name="Click" id="id1" value="MyActivities" onclick="ability()"></input>
+<input type="button" name="Click" id="id1" value="MySkills" onclick="skills()"></input>
+
+
+
+</body>
+
+</html>
