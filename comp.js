@@ -1,4 +1,5 @@
 var http=require('http');
+var fs=require('fs');
 var exec=require("child_process").exec;
 http.createServer(function(req,res){
 if(req.url=="/"){
@@ -13,6 +14,9 @@ else {
 		if (err) {
 			throw err;
 		}
+		fs.writeFile("Output.txt",stdout,function(err){
+			console.log("file created");
+		})
 		res.writeHead(200, {"Content-Type": "text/plain"});
 		res.end("Output\n:"+stdout.toString());
 	});
