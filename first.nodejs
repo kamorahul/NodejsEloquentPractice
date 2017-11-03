@@ -1,0 +1,69 @@
+var resume=
+{
+personal_info:
+{
+"name": "ANUJ YADAV",
+"sex":"Male",
+"dob":"15/09/1995",
+"city":"Kanpur",
+"religion":"hindu",
+"nationality":"Indian",
+"state":"UttarPradesh",
+"email":"anujyadav9515@gmail.com",
+"phone":"9592037022",
+},
+qualification:
+{
+Graduation:{
+"university":"Lovely professional University",
+"percentage":"77%",
+"stream":"ECE",
+},
+Secondary:
+{
+"college":"CV Raman Inter College ",
+"board":"U.P Board",
+"percentage":"84%",
+Subjects:
+{
+"math":"89",
+"physics":"85",
+"chemistry":"84",
+"hindi":"75",
+"physical education":"88",
+"english":"75",
+},
+},
+HighSchool:
+{
+"college":"CV Raman Inter College ",
+"board":"U.P Board",
+"percentage":"80%",
+Subjects:
+{
+"math":"81",
+"physics":"85",
+"chemistry":"84",
+"hindi":"76",
+"physical education":"88",
+"english":"75",
+"drawing":"88",
+},
+},
+},
+projects:
+[ "Smart green house monetring system using arduino in which i used multiple sensor temperature ,humedity,soil moisture ,ldr it take readings from enviornment and controlled output automatically",
+" full working website of online bus reservation using html css and javascript in this all the data of pasenger and bus information stored in database(oracle) and user get automatically seat_no and Pnr_no "],
+hobbies:["mimicry","travelling","adventure sports"],
+achievments:["got first prize in mimic the voice in my school","awarded by DM of kanpur for scoring good marks in high school"],
+Technical:["embedded and robotics","R programming ","web development"],
+
+language:["English","hindi"],
+
+
+
+
+
+}
+console.log(resume);
+
