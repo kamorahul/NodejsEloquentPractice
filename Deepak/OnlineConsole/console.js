@@ -34,12 +34,11 @@ else if (request.method == 'POST') {
 		console.log("Code written to file: " +inputs["code"]);
 
 		var workerProcess = cp.spawn('nodejs', ["jsfile.js"]);
-		
+		var out="";
 		workerProcess.stdout.on('data',(data)=> {
-		console.log('Final Output:' + data);	
-		
-		response.write(data);
-		response.end();
+		out=out+data;
+		console.log('Final Output:' + out);	
+		response.write(out);
 		});
 
 		workerProcess.stderr.on('data',(data)=> {
@@ -48,6 +47,7 @@ else if (request.method == 'POST') {
 
 		workerProcess.on('close',(code)=> {
 		console.log('Child process Executed with code ' + code);
+		response.end();
 		});
 		
 		});

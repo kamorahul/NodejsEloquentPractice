@@ -1,1 +1,2 @@
-console.log("ee");
+console.log("hello");
+console.log("hi");
