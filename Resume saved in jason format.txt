@@ -1,0 +1,24 @@
+var resume={"BasicDetails":
+{"name":"shubham Arora","Mobile":[9041941015,9478428201],"emailid":"arorashubham1995@yahoo.com"},
+"CarrerObejctive":
+{"first":"To work in the field of Information Technology where I can contribute my technical, communication, analytical and interpersonal skills for the achievement of organizational and personal goals"},
+"Education":
+{"Graduation":
+{"College":"Lovely Profesional Univerity","Marks":"8.07 Cgpa","Univeristy":"Lovely Professional University"},
+"Matric":{"School":"Toddlers home study Hall","Marks":"80%","Board":"Punjab school of education Board"}
+},
+"Projects":
+{"First":"Food App make an App that helps the user to order Food",
+"Second":"E Support for farmers To make an App that helps the farmers to grow and sell the crops",
+"Third":"Speech to text To make an App that helps to convert speech to text"
+},
+"Certifications":
+{"first":"Certified in Database from Microsoft Technology Associate, July,2015",
+"Second":"Attended seminar on Personality Development by Mr. Rakesh Kumar at Lovely Professional University, March,2014",
+"Third":"Attended two days workshop on Universal App Development Lovely Professional University, feb,2016",
+"Fourth":"•	Attended two days workshop on Microsoft Azure Lovely Professional University, feb,2016"},
+"Leadership":
+{"first":"Appointed as Event Management Co-ordinator, Youth Vibe Organised by Lovely Professional University, October 2015",
+"Second":"Appointed as Mentor of School, in Explorica Organized by Lovely Professional University, November 2015"}
+
+}
