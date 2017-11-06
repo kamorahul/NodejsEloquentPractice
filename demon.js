@@ -1,34 +1,3 @@
-// var fs = require('fs');
-// var filePath = 'result.txt';
-// var file = fs.readFileSync(filePath);
-// console.log('Initial File content : ' + file);
-// fs.watchFile(filePath, function() {
-//     console.log('File Changed ...');
-//     file = fs.readFileSync(filePath);
-//     console.log('File content at : ' + new Date() + ' is \n' + file);
-// });
-
-
-// var fs = require('fs');
-// var filePath = '.';
-// var file = fs.readFileSync(filePath);
-// //console.log('Initial File content : ' + file);
-
-// fs.watch(filePath, function(event, filename) {
-//   if(filename){
-//     console.log('Event : ' + event);
-//   //  console.log(filename + ' file Changed ...');
-//     file = fs.readFileSync(filePath);
-//   //  console.log('File content at : ' + new Date() + ' is \n' + file);
-//   }
-//   else{
-//    // console.log('filename not provided')
-//   }
-// });
-
-
-
-
 
 var fs=require('fs');
 var folder = './';
@@ -48,7 +17,8 @@ function check(folder)
       			{
         			console.log(`file : `+folder+file+` is modified at ${curr.mtime}`);
       			});
-    		}
+    			child_process.spawn('nodejs', [file]);
+		}
     		else
     		{
       			var temp=file.match("[a-z0-9]+.[a-z0-9]+");
