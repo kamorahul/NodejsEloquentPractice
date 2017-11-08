@@ -14,8 +14,11 @@ abc["a"]
 var obj = {"a" : "wds","b": "sdfgdfg",3 : "wefasdf",4 : {d: "sadf",c :{"abc" : [{"asefd" : "sedfgdfgsdfg"}]}}}
 
 
-// obj["4"].c.abc[0].asefd
+// obj["4"].c.abc.indexOf
 
 
 
 console.log(Object.indexOf)
+
+
+
