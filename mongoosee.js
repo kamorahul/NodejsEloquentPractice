@@ -56,5 +56,5 @@ function create (user,constrains) {
 
     
  
-   //create("schema",{name:{type:String,required:true},age:{type:Number,required:true}});
+   //create("schema",{"properties" : {"name" : {"type":"string"},"age" : {"type":"integer"}},"required":["name"]};
     insert("schema",{name:"abc",age:21});
