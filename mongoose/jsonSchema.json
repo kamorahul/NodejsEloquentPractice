@@ -1,0 +1,6 @@
+{
+	"name":"string",
+	"id":"number",
+	"birth":"date",
+	"gender":"male/female"
+}
