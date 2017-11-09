@@ -24,7 +24,7 @@ var url='mongodb://localhost:27017/MyDb';
 		}
 	}
 //	console.log(counter1)
-//	console.log(key.length,key2.length)
+//	console.log(key.length,key2.length)//
 	if(key.length>=key2.length)
 	{
 		for(var i=0;i<key2.length;i++)
