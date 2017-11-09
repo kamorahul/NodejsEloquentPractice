@@ -1,36 +1,33 @@
-const express=require("express");
-const {spawn} =require("child_process");
-const bodyparser=require("body-parser");
-const read_write=require("./read_write");
+const express = require("express");
+const {
+    spawn
+} = require("child_process");
+const bodyparser = require("body-parser");
+const read_write = require("./read_write");
 
 
-const app=express();
+const app = express();
 app.use(bodyparser.text());
-app.post('/',(req,res)=>{
-    const code=req.body;
+app.post('/', (req, res) => {
+    const code = req.body;
     read_write.fileWrite(code).then(
-        ()=>{
-            // read_write.fileRead().then(
-            //     (data)=>{
-            //         console.log(data);
-            //     }
-            // )
-            const cp=spawn("node",["code.js"]);
-            cp.stdout.on("data",(data)=>{
+        () => {
+            const cp = spawn("node", ["code.js"]);
+            cp.stdout.on("data", (data) => {
                 console.log(`Stdout: ${data.toString() }`);
-                });
-                cp.stderr.on('data',(data)=>{
-                    console.log(`Error : ${data}`);
-                })
+            });
+            cp.stderr.on('data', (data) => {
+                console.log(`Error : ${data}`);
+            })
 
         }
     ).catch(
-        e=>console.log(e)
+        e => console.log(e)
     );
 
-res.send("done");
+    res.send("done");
 })
-app.listen(4000,()=>{
+app.listen(4000, () => {
     console.log(`my server is running..`);
 })
 
@@ -82,7 +79,7 @@ app.listen(4000,()=>{
 //     return new Promise((resolve,reject)=>{
 //         fs.readFile(__dirname+"/test.js","utf8",(err,data)=>{
 //             return err?reject(err):resolve(data);
-            
+
 //         });
 //     });
 // }
@@ -91,8 +88,3 @@ app.listen(4000,()=>{
 // ).catch(
 //     e=>console.log(e)
 // )
-
-
-
-
-
