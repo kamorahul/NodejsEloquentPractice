@@ -1,0 +1,5 @@
+{
+    "name": {"type": "string","required":true},
+    "address": {"type":"string","required":true},
+    "votes": {"type": ["integer","string"], "minimum": 1,"required":false}
+}
