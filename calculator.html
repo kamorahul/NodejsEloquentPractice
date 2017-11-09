@@ -1,0 +1,174 @@
+<html>
+<head>
+  <title>calculator</title>
+<style type="text/css">
+body {
+    background-color: #48d1cc ;
+}
+#number
+{
+border: 3px solid black;
+width: 520px;
+border-radius: 5px;
+background-color: gray;
+}
+</style>
+  <script language='JavaScript'>
+  <!--------------------------------------------------------------------
+  
+    Memory  = "0"; 
+    Current = "0";  
+    Operation = 0;   
+    MAXLENGTH = 30;     
+
+function AddDigit(dig)          
+ { if (Current.indexOf("!") == -1)  
+    { if (    (Current == 0)
+              && (Current.indexOf(".") == -1)
+         ) { Current = dig;
+           } else
+           { Current = Current + dig;
+           };
+    } else
+    { Current = "Hint! Press 'AC'"; 
+    };
+  if (Current.length > MAXLENGTH)
+     { Current = "Aargh! Too long"; 
+     };
+   document.Calculator.Display.value = Current;
+ }
+
+function Dot()                  
+ {
+  if ( Current.length == 0)     
+    { Current = "0.";
+    }
+ else
+    {  if (   ( Current.indexOf(".") == -1)
+            &&( Current.indexOf("e") == -1)
+          )
+         { Current = Current + ".";
+    };   };
+  document.Calculator.Display.value = Current;
+ }
+
+function Clear()  
+ { Current = "0";
+   document.Calculator.Display.value = Current;
+ }
+
+function AllClear() 
+ { Current = "0";
+   Operation = 0;   
+   Memory = "0";             
+   document.Calculator.Display.value = Current;
+   document.Calculator.Display1.value = Current;
+ }
+
+function Operate(op)      
+ {
+  if (Operation != 0) 
+{ Calculate(); }; 
+  if (op.indexOf("*") > -1) { Operation = 1; }; 
+  if (op.indexOf("/") > -1) { Operation = 2; };       
+  if (op.indexOf("+") > -1) { Operation = 3; };      
+  if (op.indexOf("-") > -1) { Operation = 4; };       
+  Memory = Current;
+  Current = "";
+  document.Calculator.Display.value = op;
+ }
+
+function Square(op)
+{
+if (Operation !=0)
+{ Calculate(); }
+if (op.indexOf("Sq") > -1) { Operation = 5};
+if (op.indexOf("Sr") > -1) { Operation = 6};
+  Memory = Current;
+  Current = "";
+document.Calculator.Display.value = op;
+}
+
+function Calculate()    
+ { 
+  if (Operation == 1) { Current = Memory * Current; };
+  if (Operation == 2)
+    { if (Current != 0)
+      { Current = Memory / Current;
+      } else
+      { Current = "Aargh! Divide by zero";
+      }
+    };
+  if (Operation == 3) { Current = parseFloat(Memory) + parseFloat(Current); };
+  if (Operation == 4) { Current = Memory - Current; };
+  if (Operation == 5) { Current = Memory * Memory; };
+  if (Operation == 6) { Current = Math.sqrt(Memory); };
+  Operation = 0;    
+  Memory = "0";            
+  Current = Current + "";     
+  if (Current.indexOf("Infinity") != -1)   
+    { Current = "Aargh! Value too big";
+    };
+  if (Current.indexOf("NaN") != -1)  
+    { Current = "Aargh! I don't understand";
+    };
+  document.Calculator.Display1.value = Current;
+ }
+
+
+  //--------------------------------------------------------------->
+  </script>
+
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<center>
+<div id="number">
+<FORM name="Calculator">
+<table height="300px" width="100px"><tr><b><em>Calculator</em></b>
+</tr>
+<tr>
+<td colspan="2" align="center">Input<br>
+<input type="text" maxlength="40"  name="Display">
+</b>
+</td>
+<td colspan="2" align="center">
+Output<br>
+<input type="text" maxlength="40"  name="Display1">
+</td>
+</tr>
+<tr>   
+<tr>
+  <td><input type="button" name="AC" value="   AC    " OnClick="AllClear()"></td>
+  <td><input type="button" name="sub" value="    -    " OnClick="Operate('-')"></td>
+  <td><input type="button" name="div" value="    /    " OnClick="Operate('/')"></td>
+  <td><input type="button" name="root" value="   Sq   " OnClick="Square('Sq')"></td>  
+</tr><tr>
+  <td><input type="button" name="seven" value="    7    " OnClick="AddDigit('7')"></td>
+  <td><input type="button" name="eight" value="    8    " OnClick="AddDigit('8')"></td>
+  <td><input type="button" name="nine" value="    9    " OnClick="AddDigit('9')"></td>
+  <td><input type="button" name="square" value="   Sr    " OnClick="Square('Sr')"></td>
+</tr><tr>
+  <td><input type="button" name="four" value="    4    " OnClick="AddDigit('4')"></td>
+  <td><input type="button" name="five" value="    5    " OnClick="AddDigit('5')"></td>
+  <td><input type="button" name="six" value="    6    " OnClick="AddDigit('6')"></td>
+  <td><input type="button" name="mul" value="    *    " OnClick="Operate('*')"></td>
+</tr><tr>
+  <td><input type="button" name="one" value="    1    " OnClick="AddDigit('1')"></td>
+  <td><input type="button" name="two" value="    2    " OnClick="AddDigit('2')"></td>
+  <td><input type="button" name="three" value="    3    " OnClick="AddDigit('3')"></td>
+  <td><input type="button" name="add" value="    +    " OnClick="Operate('+')"></td>
+</tr><tr>
+  <td><input type="button" name="one" value="     0    " OnClick="AddDigit('0')"></td>
+  <td><input type="button" name="two" value="     .    " OnClick="Dot()"></td>
+   <td><input type="button" name="result" value="    =    " OnClick="Calculate()"></td>
+  <td><input type="button" name="clear" value="    C    " OnClick="Clear()"></td>
+</tr>
+</table>
+</FORM> 
+</div>                                 
+</body>
+</html>
