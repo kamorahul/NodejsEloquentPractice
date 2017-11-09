@@ -1,0 +1,5 @@
+{
+    "name" : { "type" : "[a-z][A-Z]+", "required" : true},
+    "regno" : { "type" : "[0-9]{8}", "required" : true},
+    "hosteller" : {"type" : "([Tt][Rr][Uu][Ee]|[Ff][Aa][Ll][Ss][Ee])", "required" : true}
+}
