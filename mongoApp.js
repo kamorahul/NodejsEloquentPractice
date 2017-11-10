@@ -1,28 +1,88 @@
-var MongoClient = require('mongodb').MongoClient
-    , format = require('util').format;
-var url = 
-MongoClient.connect('mongodb://127.0.0.1:11112/mydb', function (err, db) {
-    if (err)
-        throw err;
-        var myFriendCollection = db.collection('friends');
-        var friendsArray = [{fname:"javaid",mname:"ahmad",lname:"ganaie",age:"24",hq:"mca",},
-                            {fname:"javaid",mname:"ahmad",lname:"ganaie",age:"24",hq:"mca",},
-                            {fname:"javaid",mname:"ahmad",lname:"ganaie",age:"24",hq:"mca",},
-                            {fname:"javaid",mname:"ahmad",lname:"ganaie",age:"24",hq:"mca",}]
+var MongoClient = require('mongodb').MongoClient,
+ format = require('util').format;
 
+var myMongoose = require('./myMongoose');
+
+var url = 'mongodb://127.0.0.1:11112/mydb';
+MongoClient.connect(url, function (err, db) {
+    if (err)
+        console.log(err);
+
+        var myFriendCollection = db.collection('friends');
+
+    var userSchema = {
+        fname:{
+            type: "String",
+            minSize: 1,
+            maxSize: 20
+        },
+        lname: {
+            type: "String",
+            minSize: 0,
+            maxSize: 20
+        },
+        age: {
+            type: "Number",
+            minSize: 1,
+            maxSize: 3
+        },
+        email: {
+            type: "String",
+            reg: /\S+@\S+\.\S+/,
+            minSize: 1,
+            maxSize: 40
+        },
+        password:{
+            minSize: 8,
+            maxSize: 16,
+            type: "String",
+            reg: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,16}/,
+        },
+        required: ["fname", "lname", "email", "password"],
+        unique: ["email"],
+        regExp : ["email","password"]
+    };
+
+    var userData = {
+        fname:"reyaz",
+        lname:"mir",
+        age:22,
+        email: "mirreyaz1111@gmail.com",
+        password: "Rehaaaaa2*"
+    };
+
+    var dbData = []
+
+    myFriendCollection.find({}).toArray(function(err, res){
+        if(err){
+            throw err;
+        }else{ 
+            var response = myMongoose.mongoozee(myFriendCollection, res, userData, userSchema);
+            if(response===""){
+                insertData(myFriendCollection,userData);  //insert data into database      
+            }else{
+                console.log(response)
+            }
+            
+        }
+        db.close(); 
+     });
 
 
           //calling custom functions to do insert, find, delete and update operations...
-        insertData(myFriendCollection,friendsArray);        //insert into db
-        findData(myFriendCollection, {fname:"javaid"});       //find from db
-        deleteData(myFriendCollection, myFriendCollection.findOne({},{_id:true}));  //delete data from db
-        updateData(myFriendCollection, {name:"reyaz"}, {fname:"reyaz",mname:"ahmad", age:"22"});        //update data into db
+        // findData(myFriendCollection, {fname:"javaid"});     //find from db
+        // deleteData(myFriendCollection, myFriendCollection.findOne({},{_id:true}));  //delete data from db
+        // updateData(myFriendCollection, {name:"reyaz"}, {fname:"reyaz",mname:"ahmad", age:"22"});        //update data into db
         
-        db.close();
+        
 });
 
+
+
+
 var insertData = function(collection, data){
-    collection.insertMany(data,function(err, res){
+
+    collection.insert(data,function(err, res){
         if(err){
             throw err;
         }else{
