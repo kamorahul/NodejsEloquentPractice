@@ -1,0 +1,8 @@
+{
+ "name" : "ajeet",
+ "age" : "22",
+ "course" : "btech",
+ "gender" : "male",
+ "height": "167cm",
+ "weight":"67kg"
+}
