@@ -1,0 +1,19 @@
+String Number Boolean Array Object Phone RegExp-[expretion]
+
+
+
+
+further filters for String->
+{
+	type,maxLen,minLen,mustBe,require(boolean)
+}
+
+
+further filters for Number->
+{
+	type,maxVal,minVal,mustBe,require(boolean)
+} 
+
+
+
+
