@@ -1,0 +1,6 @@
+//schema
+{
+    "name":{"type":"[a-z][A-Z]+", "required":true},
+    "age":{"type":"[0-8]{2}", "required":true},
+    "online":{"type":"([Tt][Rr][Uu][Ee]|[Ff][Aa][Ll][Ss][Ee])", "required": true} 
+}
