@@ -38,12 +38,6 @@ function find(root){
       }  
            
   }
-
-
-
-  
-  
-
 }
 
 find(".");
