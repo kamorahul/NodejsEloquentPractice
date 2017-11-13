@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+var socket = io();
+	function myFunction(){
+	var m=document.getElementById("message").value;
+	socket.emit('Chat message',m);
+	document.getElementById("message").value="";
+	}
+socket.on('Chat message', function(msg){
+	document.getElementById("chat").value+="\n"+msg;
+	});
+</script>
+</head>
+
+<body>
+  Chat Room:<br>
+ <textarea rows="20" cols="80" id="chat"></textarea>
+  <br>
+  Type Here:<br>
+  <input type="text" id="message">
+  <br><br>
+  <input type="button" onclick="myFunction()" value="Send">
+</body>
+</html>
