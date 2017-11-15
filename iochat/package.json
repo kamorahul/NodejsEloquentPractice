@@ -1,0 +1,15 @@
+{
+  "name": "iochat",
+  "version": "1.0.0",
+  "description": "group chat",
+  "main": "server.js",
+  "scripts": {
+    "test": "chandra"
+  },
+  "author": "chandu",
+  "license": "ISC",
+  "dependensies": {
+    "socket.io": "*",
+    "express": "*"
+  }
+}
