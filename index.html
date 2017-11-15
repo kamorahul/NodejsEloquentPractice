@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+    </style>
+    
+  </head>
+  <body>
+    
+    <h3 id="un"></h3>
+    <ul id="messages"></ul>
+    <form action="">
+      <input id="m" autocomplete="off" /><button>Send</button>
+    </form>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+      var userName,room_name;
+      var socket = io();
+      
+      $(function getValue(){
+            
+            userName = prompt("Enter your name : ");
+            while(userName=="" || userName==null)
+            {
+              userName = prompt("Enter your name : ");
+            }
+            room_name = prompt("Enter room name : ");
+            while(room_name=="" || room_name==null)
+            {
+              room_name = prompt("Enter room name : ");
+            }
+            console.log(userName+room_name);
+            document.getElementById("un").innerHTML ="User: "+ userName+" Room: "+room_name;
+            socket.emit('subscribe', room_name);
+      });
+      
+     $(function () {
+      $('form').submit(function(){
+        var dt = new Date();
+        var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+        socket.emit('send',{room:room_name,message:userName+" : "+ $('#m').val()+" "+time});
+        $('#m').val('');
+        return false;
+      });
+      socket.on(room_name, function(msg){
+      $('#messages').append($('<li>').text(msg.message));         
+      });
+    });
+  
+    </script>
+    
+  </body>
+</html>
+
