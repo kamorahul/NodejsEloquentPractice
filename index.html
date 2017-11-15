@@ -18,7 +18,7 @@
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
-    <script src="http://192.168.100.91:8000/socket.io/socket.io.js" ></script>
+    <script src="http://192.168.43.31:8000/socket.io/socket.io.js" ></script>
 
     <script src="https://code.jquery.com/jquery-1.11.1.js" ></script>
     <script type="text/javascript">
@@ -29,7 +29,7 @@
   			var socket = io();
   			$('form').submit(function(){
   				mess=name+' : '+$('#m').val();
-  				$('#messages').append($('<li>').text(mess));
+  				//$('#messages').append($('<li>').text(mess));
   				socket.emit('chat message', mess);
       			$('#m').val('');
       			return false;
