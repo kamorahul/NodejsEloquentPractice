@@ -25,7 +25,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
-      var userName;
+      var userName,room_name;
       var socket = io();
       
       $(function getValue(){
@@ -35,18 +35,26 @@
             {
               userName = prompt("Enter your name : ");
             }
-            console.log(userName);
-            document.getElementById("un").innerHTML ="User: "+ userName;
-          });
+            room_name = prompt("Enter room name : ");
+            while(room_name=="" || room_name==null)
+            {
+              room_name = prompt("Enter room name : ");
+            }
+            console.log(userName+room_name);
+            document.getElementById("un").innerHTML ="User: "+ userName+" Room: "+room_name;
+            socket.emit('subscribe', room_name);
+      });
       
      $(function () {
       $('form').submit(function(){
-        socket.emit('chat message',userName+" : "+ $('#m').val());
+        var dt = new Date();
+        var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+        socket.emit('send',{room:room_name,message:userName+" : "+ $('#m').val()+" "+time});
         $('#m').val('');
         return false;
       });
-      socket.on('chat message', function(msg){
-      $('#messages').append($('<li>').text(msg));         
+      socket.on(room_name, function(msg){
+      $('#messages').append($('<li>').text(msg.message));         
       });
     });
   
