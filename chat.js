@@ -1,7 +1,7 @@
 // Make connection
 var socket = io.connect('http://localhost:4000');
 
-// Query DOM
+// Query DOM   fderr
 var message = document.getElementById('message');
 var      name1 = document.getElementById('name');
 var      btn = document.getElementById('send');
