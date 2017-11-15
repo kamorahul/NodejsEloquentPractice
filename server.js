@@ -7,18 +7,21 @@ app.get('/', function(req, res){
 });
 
 
-io.on('connection', function(socket){
-    console.log('a user connected');
-    socket.on('disconnect', function(){
-      console.log('user disconnected');
-    });
-});
+io.sockets.on('connection', function(socket){
+  socket.on('subscribe', function(room) { 
+      console.log('joining room', room);
+      socket.join(room); 
+  });
 
-io.on('connection', function(socket){
-    socket.on('chat message', function(msg){
-      socket.broadcast.emit('chat message', msg);
-     
-    });
+  socket.on('unsubscribe', function(room) {  
+      console.log('leaving room', room);
+      socket.leave(room); 
+  });
+
+  socket.on('send', function(data) {
+      console.log('sending message');
+      socket.broadcast.in(data.room).emit(data.room, data);
+  });
 });
 
 
