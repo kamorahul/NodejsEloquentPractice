@@ -1,36 +1,40 @@
-var http=require("http");
-var data=require("./data");
-http.createServer(function(req,res)
-{
-var link=req.url;
-console.log(req.url);
-if(link=='/')
-{
-res.writeHead(200,{"Content-Type": "text/plain"});
-res.end("Welcome To Home Page");
-}
-else if(req.url.match(/login[?][A-Za-z]*=[A-Za-z]*&[A-Za-z]*=[A-Za-z0-9_-]*/g))
-{
-res.writeHead(200,{"Content-Type":"text/plain"});
-var path=link.split('?')[1];
-var path2=path.split('&')[0];
-var path3=path2.split('=')[0];
-var path7=path2.split('=')[1];
-var path4=path.split('&')[1];
-var path5=path4.split('=')[0];
-var path6=path4.split('=')[1];
-if(data.username==path7 && data.password==path6)
-{
-res.writeHead(200,{"Content-Type":"text/plain"});
-res.end("Login successful");
-}
-else if(data.username != path7 || data.password != path6)
-{
-res.end("Unauthorized User");
-}
-}
-else
-res.end("URl wrong");
-}).listen(4000);
+var express=require('express');
+var app = express();
+var server = require('http').createServer(app);
+var io = require('socket.io').listen(server);
+users = [];
+connections =[];
+server.listen(process.env.PORT || 3000);
+console.log('Server running...');
+app.get('/', function(req, res){
+    res.sendFile(__dirname + '/index.html');
+    });
+    io.sockets.on('connection',function(socket) {
+       connections.push(socket);
+       console.log('Connected %s sockets connected',connections.length);
+        socket.on('disconnect',function(data)
+    {
+       
+        users.splice(users.indexOf(socket.username),1);
+        updateUsernames();
+        connections.splice(connections.indexOf(socket),1);
+        console.log('disconnected: %s sockets connected',connections.length);
+     
+    });  
+    socket.on('send message',function(data){
+      //  console.log(data);
+        io.sockets.emit('new message',{msg: data,user:socket.username});
 
-
+    });
+    //new user
+    socket.on('new user',function(data,callback){
+        callback(true);
+        socket.username = data;
+        users.push(socket.username);
+        updateUsernames();
+    });
+    function updateUsernames()
+    {
+        io.sockets.emit('get users',users);
+    }
+    });
