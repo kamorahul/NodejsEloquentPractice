@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+      #messages { margin-bottom: 40px }
+      #inputForm{
+        display: none;
+      }
+      #msg{
+        width:65%;
+        float: left;
+      }
+      #connections{
+        float: right;
+      }
+
+      #head{
+        display: none;
+        margin: auto;
+        text-align: center;
+        font-style: Helvetica, Arial;
+        font-size: 26px;
+        color: #3cba54;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="" id="login">
+
+      <form action="" id="loginForm">
+        <input id="username" placeholder="Enter username" /><button>Send</button>
+      </form>
+    </div>
+
+    <div id="msg" ><ul id="messages"></ul></div>
+    <div id="connections">
+      <h3 id="head"> Online Users</h3>
+      <ul id="usersOnline" ></ul>
+    </div>
+<div class="" style="clear:both;">
+
+</div>
+
+
+
+
+    <form action="" id="inputForm">
+      <input id="m" placeholder="Enter text to send" autocomplete="off" /><button>Send</button>
+    </form>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+
+    $(function () {
+      var $inputForm=$('#inputForm');
+      var $login=$('#login');
+  var socket = io();
+
+// Getting username
+    $login.submit(function(){
+        socket.emit('user info', $('#username').val());
+        $('#username').val('');
+        $('#inputForm').show();
+        $('#head').show();
+
+        socket.on('online', function(data){
+          for(i=0;i<data.length;i++)
+          $('#usersOnline').append($('<li>').text(data[i]));
+          window.scrollTo(0, document.body.scrollHeight);
+        });
+
+        return false;
+      });
+// Getting text messages
+        $inputForm.submit(function(){
+          socket.emit('chat message', $('#m').val());
+          $('#m').val('');
+          return false;
+        });
+
+        socket.on('display message', function(msg,user){
+          $('#messages').append($('<li>').text(user+' : '+msg));
+          window.scrollTo(0, document.body.scrollHeight);
+        });
+
+
+      });
+    </script>
+  </body>
+</html>
