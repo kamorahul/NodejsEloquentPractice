@@ -1,28 +1,25 @@
-var http  = require("http")
-var qs  = require('./querystring');
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+var count = 0;
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/index.html');
+});
 
+io.on('connection', function(socket){
+    count++;
+    socket.on('chat message', function(msg){
+        io.emit('chat message', msg);
+        io.emit('user-count',count);
+      });
 
-var server =  http.createServer(function (req,res) {
-	console.log(Object.keys(req));
-		console.log(req.url);
-	if(req.method == "GET"){
-		var queryStringInJson = qs.decodeGet(req.url);
-		res.end(JSON.stringify(queryStringInJson));
+  socket.on('disconnect', function(){
+      count--;
+      io.emit('user-count',count);
+    // console.log('user disconnected');
+  });
+});
 
-	}else if(req.method == "POST"){
-		// var queryStringInJson = qs.decodePost(req.url);
-		// if(queryStringInJson.hasOwnProperty("name")){
-		// 	if(queryStringInJson.name==="reyaz"){
-		// 		res.end("You are logged in as : "+queryStringInJson.name);
-		// 	}else{
-		// 		res.end("invalid details \n 404 file not found");
-		// 	}
-		// }else{
-		// 	res.end("invalid address");
-		// }
-		//pending...
-		res.end("post is pending...")
-
-	}
-}).listen(3000);
-console.log("nodejs server is running on port 3000");
+http.listen(3000, function(){
+  console.log('listening on *:3000');
+})
