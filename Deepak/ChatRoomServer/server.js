@@ -9,9 +9,9 @@ res.sendFile("/home/deepak/Desktop/NodejsEloquentPractice/Deepak/ChatRoomServer/
 io.on('connection', function(socket){
 	console.log('a user connected');
 	
-	socket.on("Chat message", function(msg){
+	socket.on("new message", function(msg){
 	console.log('message: ' + msg);
-	io.emit('Chat message', msg);
+	io.emit('server message', {username:"Someone",message:msg});
 	});
 
 	socket.on('disconnect', function(){
@@ -19,7 +19,7 @@ io.on('connection', function(socket){
 	});
 });
 
-http.listen(3000, function(){
+http.listen(3000,function(){
   console.log('listening on *:3000');
 });
 
