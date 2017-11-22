@@ -1,0 +1,25 @@
+{
+  "name": "hapii",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meedeepak/NodejsEloquentPractice.git"
+  },
+  "author": "meedeepak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meedeepak/NodejsEloquentPractice/issues"
+  },
+  "homepage": "https://github.com/meedeepak/NodejsEloquentPractice#readme",
+  "dependencies": {
+    "hapi": "^16.6.2",
+    "inert": "^4.2.1"
+  },
+  "devDependencies": {},
+  "description": ""
+}
