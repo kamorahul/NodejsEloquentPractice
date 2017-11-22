@@ -1,0 +1,35 @@
+<html>
+<head>
+<script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+<h1 style="position:absolute; top: 200px; left:300px;">Enter Name:</h1>
+<input style="position:absolute; top: 205px; left:530;" type="text" id="name">
+
+<script>
+var socket = io();
+var name;
+document.getElementById("name").addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {	
+	name=document.getElementById("name").value;
+	socket.emit('nameEvent',name);
+    }
+});
+
+socket.on('redirect', function(html) {
+    document.body.innerHTML=html;
+});
+
+function myFunction(){
+	var m=document.getElementById("message").value;
+	socket.emit('Chat message',name+": "+m);
+	document.getElementById("message").value="";
+	}
+socket.on('Chat message', function(msg){
+	document.getElementById("chat").value+="\n"+msg;
+	});
+</script>
+</body>
+</html>
