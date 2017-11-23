@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <title>My App For Chat</title>
+   
+  </head>
+  <body  style="background-color:grey;">
+  	<p >My Chat App ! </p>
+    <ul id="messages"></ul>
+   <center> <table>
+    <form action="" >
+    Enter Your Message Here: <br>
+    <input id="id1" autocomplete="off" style="background-color :skyblue" >
+  </form>
+    <!--   <textarea id="id1" autocomplete="off" style="background-color :skyblue" > </textarea>-->
+      <form>
+      <button style="background-color :green" onclick="msg()"/>SEND</button>
+    </form>
+  </table>
+</center>
+    <script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <form>
+    <script>
+
+        var Name="";
+        $(function getValue(){
+               Name = prompt("Type ur name  : ","Name here");
+              console.log(Name);
+            });
+       $(function msg() {
+        var socket = io();
+        $('form').submit(function(){
+          socket.emit('chat message',Name+" : "+ $('#id1').val());
+          $('#id1').val('');
+          return false;
+        });
+        socket.on('chat message', function(sms){
+          $('#messages').append($('<li>').text(sms));
+        });
+      });
+    </script>    
+
+</form>
+  </body>
+</html>
