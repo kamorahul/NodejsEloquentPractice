@@ -1,0 +1,16 @@
+{
+  "name": "redis",
+  "version": "1.0.0",
+  "description": "using redis made cache memory",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^2.2.33",
+    "node-redis": "^0.1.7",
+    "redis": "*"
+  }
+}
