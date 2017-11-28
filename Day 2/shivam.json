@@ -1,0 +1,30 @@
+var resume={
+    "name":"shivam Dhanakni",
+    "branch":"Computer Science & Engineering",
+    "university" : "LPU" , "DOB": "02\02\1996" , 
+    "Phone No" : "9592041179" ,
+    "score":{
+        "b.tech" : 
+        {
+        
+            "sem1": "8.9" , "sem2": "9" , "sem3" : "8.5" , "sem4" : "8.7" ,"sem5" :"8.9" , "sem6": "8.7"
+        
+        } ,
+        "12" :
+        {
+            "maths" : "95" ,"physics" :"78" ,"english": "70","computer" :"75"
+        } 
+        ,
+        "10" : {
+            "science": "A" ,"English":"B"}
+    } , 
+    
+"Project1" :
+    {
+        "name" : "Battle_ship" ,"Technology use" : "Android"
+    } , "Project2" : {
+        "name" : "Inventory Management System" , "Technology use" : "JSP"
+    },
+    "Skkils" : ["C","C++","Java"], 
+    " hobbies" : ["Coding" , "Playing chess"]
+} 
