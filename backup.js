@@ -26,7 +26,7 @@ fs.writeFile('backup.txt', temp,(err)=>{
 
 });
 
-//Backup will be done after every 24 hours...
+//Backup will be done after every 24 hours....
 
 setTimeout(backup,1000*60*60*24);
 
